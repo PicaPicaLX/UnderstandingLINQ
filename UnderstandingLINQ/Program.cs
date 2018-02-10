@@ -36,7 +36,7 @@ namespace UnderstandingLINQ
 
             /*
             // LINQ方法
-            var bmws = myCars.Where(p => p.Make == "BMW" && p.Year == 2010); // 圆括号里的称为Lambda表达式
+            var bmws = myCars.Where(p => p.Make == "BMW" && p.Year == 2010); // 圆括号里的称为Lambda表达式，这里表示对集合的每一项进行规定,按照=>后的要求进行计算
             foreach (var car in bmws)
             {
                 Console.WriteLine("BMW car: {0} {1}", car.Model, car.VIN); 
@@ -55,13 +55,30 @@ namespace UnderstandingLINQ
             }
             */
 
-
+            /*
             // 创建一个排序汽车列表(使用LINQ方法)
             var orderedCars = myCars.OrderByDescending(p => p.Year);
+
             foreach (var car in orderedCars)
             {
                 Console.WriteLine("Year of car: {0} {1} {2}", car.Model, car.VIN, car.Year);
             }
+            */
+
+            /*
+            // 选出第一项(LINQ方法)
+            var firstBMW = myCars.OrderByDescending(p=>p.Year).First(p => p.Make == "BMW");
+            Console.WriteLine(firstBMW.VIN);
+            */
+
+            /*
+            // 判断所有元素是否全部符合某一要求(LINQ方法)
+            Console.WriteLine(myCars.TrueForAll(p => p.Year > 2012)); // myCars中所有元素是否符合表达式中的条件 
+            */
+
+
+            // 只用一行代码完成foreach
+            myCars.ForEach(p => Console.WriteLine("{0} {1:c}", p.VIN, p.StickerPrice));
             Console.ReadLine();
 
         }
