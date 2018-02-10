@@ -34,13 +34,34 @@ namespace UnderstandingLINQ
             }
             */
 
+            /*
             // LINQ方法
-            var bmws = myCars.Where(p => p.Make == "BMW" && p.Year == 2010); // 这种方法被称为Lambda方法，只有在myCars中符合圆括号里条件的元素才会被添加进bmws里
+            var bmws = myCars.Where(p => p.Make == "BMW" && p.Year == 2010); // 圆括号里的称为Lambda表达式
             foreach (var car in bmws)
             {
                 Console.WriteLine("BMW car: {0} {1}", car.Model, car.VIN); 
             }
+            */
 
+            /*
+            // 创建一个排序的汽车列表(使用LINQ查询)
+            var orderdsCars = from car in myCars
+                              orderby car.Year descending
+                              select car;
+
+            foreach (var car in orderdsCars)
+            {
+                Console.WriteLine("Year of car: {0} {1} {2}", car.Model, car.VIN,car.Year);
+            }
+            */
+
+
+            // 创建一个排序汽车列表(使用LINQ方法)
+            var orderedCars = myCars.OrderByDescending(p => p.Year);
+            foreach (var car in orderedCars)
+            {
+                Console.WriteLine("Year of car: {0} {1} {2}", car.Model, car.VIN, car.Year);
+            }
             Console.ReadLine();
 
         }
