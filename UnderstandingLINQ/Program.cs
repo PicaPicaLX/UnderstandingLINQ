@@ -21,7 +21,8 @@ namespace UnderstandingLINQ
 
 
             /*
-            // 这是LINQ方法进行查询
+            // 这是LINQ查询
+            // var关键字表示不确定后面的字符属于何种变量，计算机决定其正确形式
             var bmws = from car in myCars // 在myCars中选择
                        where car.Make == "BMW" // 选出Make为BMW的车
                        && car.Year==2010
@@ -33,8 +34,12 @@ namespace UnderstandingLINQ
             }
             */
 
-
-
+            // LINQ方法
+            var bmws = myCars.Where(p => p.Make == "BMW" && p.Year == 2010); // 这种方法被称为Lambda方法，只有在myCars中符合圆括号里条件的元素才会被添加进bmws里
+            foreach (var car in bmws)
+            {
+                Console.WriteLine("BMW car: {0} {1}", car.Model, car.VIN); 
+            }
 
             Console.ReadLine();
 
