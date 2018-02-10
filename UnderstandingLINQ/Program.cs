@@ -94,9 +94,22 @@ namespace UnderstandingLINQ
             Console.WriteLine("{0:c}",myCars.Sum(p => p.StickerPrice));
             */
 
+            /*
+            // 得到对象的数据类型，即从类到变量类型均列出
+            var orderedCars = myCars.OrderByDescending(p => p.Year);
+           // Console.WriteLine(myCars.GetType());
+           // Console.WriteLine(orderedCars.GetType());
 
-            // 
-            Console.WriteLine(myCars.GetType());
+            var bmws = myCars.Where(p => p.Make == "BMW" && p.Year == 2010); // 圆括号里的称为Lambda表达式，这里表示对集合的每一项进行规定,按照=>后的要求进行计算
+            //Console.WriteLine(bmws.GetType());
+
+            var newCars = from car in myCars
+                          where car.Make == "BMW"
+                          && car.Year == 2010
+                          select new { car.Make, car.Model };
+            Console.WriteLine(newCars.GetType());
+            */
+
             Console.ReadLine();
 
         }
