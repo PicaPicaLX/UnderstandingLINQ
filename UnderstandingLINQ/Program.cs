@@ -76,9 +76,27 @@ namespace UnderstandingLINQ
             Console.WriteLine(myCars.TrueForAll(p => p.Year > 2012)); // myCars中所有元素是否符合表达式中的条件 
             */
 
+            /*
+            // 对车的价格进行批量操作
+            myCars.ForEach(p => Console.WriteLine("Price before: {0} {1:c}", p.VIN, p.StickerPrice));
+            myCars.ForEach(p => p.StickerPrice -= 3000); // 只用一行代码完成foreach并将价格减去3,000
+            Console.WriteLine();
+            myCars.ForEach(p => Console.WriteLine("Price after: {0} {1:c}", p.VIN, p.StickerPrice)); // 只用一行代码完成foreach并输出VIN和价格
+            */
 
-            // 只用一行代码完成foreach
-            myCars.ForEach(p => Console.WriteLine("{0} {1:c}", p.VIN, p.StickerPrice));
+            /*
+            // 检查车是否存在某个型号
+            Console.WriteLine(myCars.Exists(p => p.Model == "745li"));
+            */
+
+            /*
+            // 求总价
+            Console.WriteLine("{0:c}",myCars.Sum(p => p.StickerPrice));
+            */
+
+
+            // 
+            Console.WriteLine(myCars.GetType());
             Console.ReadLine();
 
         }
